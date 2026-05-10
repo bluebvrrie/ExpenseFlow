@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Budget - ExpenseFlow</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <button id="menuBtn" onclick="toggleSidebar()">☰</button>
+        <h2 align="center">ExpenseFlow</h2>
+        
+    </nav>
+
+    <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+
+    <div class="sidebar" id="sidebar">
+       <h2 align="center" style="color: black;">All Pages</h2>
+            <button onclick="window.location.href='index.html'">Home</button>
+            <button onclick="window.location.href='about.html'">About Us</button>
+            <button onclick="window.location.href='budget.html'">Budget</button>
+            <button onclick="window.location.href='transaction.html'">Transactions</button>
+            <button onclick="window.location.href='dashboard.html'">Dashboard</button>
+            <button onclick="window.location.href='billreminder.html'">Bill Reminder</button>
+            <button onclick="window.location.href='goaltracker.html'">Goal Tracker</button>
+            <button onclick="window.location.href='report.html'">Monthly Report</button>
+            <button onclick="window.location.href='contactpage.html'">Contact Us</button>
+            <button onclick="window.location.href='login.html'">Log Out</button>
+
+    </div>
+
+
+    <div class="container">
+        <!-- Budget Setting -->
+        <div class="form-box">
+            <h3>Set Monthly Limit</h3>
+            <div class="form-group">
+                <input type="number" id="budgetInput" placeholder="Enter Amount (₹)">
+            </div>
+            <button id="setBudgetBtn">Initialize Budget</button>
+        </div>
+
+        <!-- Status Box -->
+        <div class="card">
+            <h3>Monthly Progress</h3>
+            <p>Limit: <span id="displayLimit">₹0</span></p>
+            <div class="progress-bar"><div class="progress" id="progress"></div></div>
+            <p id="statusMsg"></p>
+        </div>
+
+        <!-- NEW: Info Cards for "Interesting" look[cite: 12] -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div class="card" style="border-top-color: #b46c72;">
+                <h4>Smart Saving</h4>
+                <p style="font-size: 0.9rem; color: #666;">Setting a budget helps you save 20% more on average.</p>
+            </div>
+            <div class="card" style="border-top-color: #b46c72;">
+                <h4>Financial Goal</h4>
+                <p style="font-size: 0.9rem; color: #666;">Keep your 'Spent' bar green to reach your end-of-month goals!</p>
+            </div>
+        </div>
+    </div>
+    <script src="budget.js"></script>
+</body>
+</html>

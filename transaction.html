@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transactions - ExpenseFlow</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <button id="menuBtn" onclick="toggleSidebar()">☰</button>
+        <h2 align="center">ExpenseFlow</h2>
+    </nav>
+
+    <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+
+    <div class="sidebar" id="sidebar">
+        <h2 align="center" style="color: black;">All Pages</h2>
+        <button onclick="window.location.href='index.html'">Home</button>
+        <button onclick="window.location.href='about.html'">About Us</button>
+        <button onclick="window.location.href='budget.html'">Budget</button>
+        <button onclick="window.location.href='transaction.html'">Transactions</button>
+        <button onclick="window.location.href='dashboard.html'">Dashboard</button>
+        <button onclick="window.location.href='billreminder.html'">Bill Reminder</button>
+        <button onclick="window.location.href='goaltracker.html'">Goal Tracker</button>
+        <button onclick="window.location.href='report.html'">Monthly Report</button>
+        <button onclick="window.location.href='contactpage.html'">Contact Us</button>
+        <button onclick="window.location.href='login.html'">Log Out</button>
+    </div>
+
+    <div class="container">
+        <div class="form-box">
+            <h3>Add New Transaction</h3>
+            <p style="margin-bottom: 15px; font-size: 0.9rem; color: #666;">
+                Record your income or expenses to update your real-time dashboard.
+            </p>
+            
+            <form id="txForm">
+                <div class="form-group">
+                    <label for="desc">Description</label>
+                    <input type="text" id="desc" placeholder="e.g., Coffee or New Shoes">
+                </div>
+
+                <div class="form-group">
+                    <label for="amount">Amount (₹)</label>
+                    <input type="number" id="amount" placeholder="0.00" step="0.01" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="type">Transaction Type</label>
+                    <select id="type">
+                        <option value="expense">Expense</option>
+                        <option value="income">Income</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select id="category">
+                        <option value="Food">Food</option>
+                        <option value="Travel">Travel</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Bills">Bills</option>
+                        <option value="Salary">Salary</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </div>
+
+                <div class="form-group" style="background: #fdf2f3; padding: 15px; border-radius: 8px; border: 1px solid #ac3c45; margin: 20px 0;">
+    <div style="display: flex; align-items: center; gap: 12px; cursor: pointer;">
+        <input type="checkbox" id="isWant" style="width: 20px; height: 20px; accent-color: #ac3c45; cursor: pointer;" onchange="toggleImpulseMessage()">
+        <label for="isWant" style="margin: 0; font-weight: bold; color: #ac3c45; font-size: 1rem; cursor: pointer;">
+            MARK AS IMPULSE WANT
+        </label>
+    </div>
+    <p id="impulseWarning" style="display: none; margin-top: 10px; font-size: 0.9rem; color: #8b2635; font-weight: bold; text-align: center;">
+        Think twice! Impulse wants can derail your budget. Watch out next time!
+    </p>
+</div>
+
+                <button type="submit">Add Transaction</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <h3>Transaction History</h3>
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Amount</th>
+                            <th>Type</th>
+                            <th>Category</th>
+                            <th>Priority</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay" id="txOverlay" style="position:fixed;inset:0;background:rgba(20,4,6,0.62);backdrop-filter:blur(5px);display:flex;align-items:center;justify-content:center;z-index:200;opacity:0;pointer-events:none;transition:opacity 0.3s;">
+        <div id="txPopup" style="background:#fff;border-top:5px solid #8b2635;border-radius:8px;padding:40px 36px;text-align:center;max-width:340px;width:90%;transform:scale(0.88);transition:transform 0.4s cubic-bezier(0.22,1,0.36,1);position:relative;">
+            <div style="font-size:40px;margin-bottom:12px;">✅</div>
+            <h2 style="color:#6b1a27;margin-bottom:8px;">Transaction Added!</h2>
+            <p style="color:#5a2a30;margin-bottom:24px;">Your records have been updated.</p>
+            <button onclick="closeTxPopup()" style="padding:12px 32px;background:#8b2635;border:none;border-radius:50px;color:#fff;font-size:15px;font-weight:700;cursor:pointer;">Done</button>
+        </div>
+    </div>
+
+    <script src="transaction.js"></script>
+</body>
+</html>

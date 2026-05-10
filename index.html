@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - ExpenseFlow</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <button id="menuBtn" onclick="toggleSidebar()">☰</button>
+        <h2 align="center" style="font-family: 'Brush Script MT', cursive;">Welcome to the world of Budgeting</h2>
+        
+    </nav>
+
+    <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+
+    <div class="sidebar" id="sidebar">
+        <h2 align="center" style="color: black;">All Pages</h2>
+            <button onclick="window.location.href='index.html'">Home</button>
+            <button onclick="window.location.href='about.html'">About Us</button>
+            <button onclick="window.location.href='budget.html'">Budget</button>
+            <button onclick="window.location.href='transaction.html'">Transactions</button>
+            <button onclick="window.location.href='dashboard.html'">Dashboard</button>
+            <button onclick="window.location.href='billreminder.html'">Bill Reminder</button>
+            <button onclick="window.location.href='goaltracker.html'">Goal Tracker</button>
+            <button onclick="window.location.href='report.html'">Monthly Report</button>
+            <button onclick="window.location.href='contactpage.html'">Contact Us</button>
+            <button onclick="window.location.href='login.html'">Log Out</button>
+        
+    </div>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <h1 class="hero-title">ExpenseFlow</h1>
+        <p class="hero-subtitle">Master your money, one transaction at a time.</p>
+        <a href="budget.html" class="cta-button">Get Started</a>
+    </header>
+
+    <div class="container">
+        <!-- WHAT IS IT SECTION -->
+        <section class="info-grid">
+            <div class="info-card">
+                <h3>What is ExpenseFlow?</h3>
+                <p>ExpenseFlow is a comprehensive personal finance tool designed for students and professionals to track spending habits in real-time[cite: 1].</p>
+            </div>
+            <div class="info-card">
+                <h3>What does it do?</h3>
+                <p>It allows you to set monthly limits, record income/expenses, and visualizes your financial health through interactive charts.</p>
+            </div>
+        </section>
+
+        <!-- WHY IT MATTERS -->
+        <section class="card" style="text-align: center;">
+            <h2 style="color: #ac3c45; margin-bottom: 15px;">Why Financial Tracking Matters?</h2>
+            <p style="color: #666; margin-bottom: 20px;">
+                Studies show that individuals who track their expenses save up to 20% more than those who don't. 
+                By identifying "hidden" costs, you gain the freedom to invest in what truly matters.
+            </p>
+            <div class="features">
+                <div class="feature-item">✔ <strong>Visual Insights:</strong> See exactly where your money goes.</div>
+                <div class="feature-item">✔ <strong>Budget Discipline:</strong> Get alerts when you exceed your limits.</div>
+                <div class="feature-item">✔ <strong>Data Privacy:</strong> All your data is stored locally on your device.</div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 ExpenseFlow. Designed for Smart Financial Management.</p>
+    </footer>
+
+    <script src="home.js"></script>
+</body>
+</html>

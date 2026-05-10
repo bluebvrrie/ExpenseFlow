@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Goal Tracker</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Extra CSS -->
+    <style>
+
+        .goal-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .goal-buttons button {
+            width: auto;
+            padding: 10px 15px;
+        }
+
+        .completed {
+            color: green;
+            font-weight: bold;
+        }
+
+        .pending {
+            color: #ac3c45;
+            font-weight: bold;
+        }
+
+        .goal-alert {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #ac3c45;
+        }
+
+        /* Growing Plant */
+
+        .plant-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .plant {
+            font-size: 70px;
+            margin-bottom: 10px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <nav>
+        <button id="menuBtn" onclick="toggleSidebar()">☰</button>
+        <h2 align="center">ExpenseFlow</h2>
+        
+    </nav>
+
+    <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+
+    <div class="sidebar" id="sidebar">
+       <h2 align="center" style="color: black;">All Pages</h2>
+            <button onclick="window.location.href='index.html'">Home</button>
+            <button onclick="window.location.href='about.html'">About Us</button>
+            <button onclick="window.location.href='budget.html'">Budget</button>
+            <button onclick="window.location.href='transaction.html'">Transactions</button>
+            <button onclick="window.location.href='dashboard.html'">Dashboard</button>
+            <button onclick="window.location.href='billreminder.html'">Bill Reminder</button>
+            <button onclick="window.location.href='goaltracker.html'">Goal Tracker</button>
+            <button onclick="window.location.href='report.html'">Monthly Report</button>
+            <button onclick="window.location.href='contactpage.html'">Contact Us</button>
+            <button onclick="window.location.href='login.html'">Log Out</button>
+        
+    </div>
+
+    <div class="container">
+
+        <!-- Add Goal Form -->
+        <div class="form-box">
+
+            <h2>Add Savings Goal</h2>
+
+            <div class="form-group">
+                <label>Goal Name</label>
+                <input type="text"
+                       id="goalName"
+                       placeholder="Enter goal name">
+            </div>
+
+            <div class="form-group">
+                <label>Target Amount</label>
+                <input type="number"
+                       id="targetAmount"
+                       placeholder="Enter target amount">
+            </div>
+
+            <div class="form-group">
+                <label>Initial Saved Amount</label>
+                <input type="number"
+                       id="savedAmount"
+                       placeholder="Enter saved amount">
+            </div>
+
+            <div class="form-group">
+                <label>Deadline</label>
+                <input type="date"
+                       id="deadline">
+            </div>
+
+            <button onclick="addGoal()">
+                Add Goal
+            </button>
+
+        </div>
+
+        <!-- Filter Goals -->
+        <div class="form-box">
+
+            <h2>Filter Goals</h2>
+
+            <select id="filterGoals"
+                    onchange="displayGoals()">
+
+                <option value="All">
+                    All Goals
+                </option>
+
+                <option value="Pending">
+                    Pending Goals
+                </option>
+
+                <option value="Completed">
+                    Completed Goals
+                </option>
+
+            </select>
+
+        </div>
+
+        <!-- Goal List -->
+        <div id="goalList"></div>
+
+    </div>
+
+    <!-- External JS -->
+    <script src="goaltracker.js"></script>
+
+</body>
+
+</html>

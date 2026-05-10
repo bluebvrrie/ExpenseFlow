@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bill Reminder</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        .status-paid {
+            color: green;
+            font-weight: bold;
+        }
+
+        .status-pending {
+            color: red;
+            font-weight: bold;
+        }
+
+        .alert-text {
+            color: #ac3c45;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .bill-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .bill-buttons button {
+            width: auto;
+            padding: 10px 15px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+   <nav>
+        <button id="menuBtn" onclick="toggleSidebar()">☰</button>
+        <h2 align="center">ExpenseFlow</h2>
+        
+    </nav>
+
+    <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+
+    <div class="sidebar" id="sidebar">
+       <h2 align="center" style="color: black;">All Pages</h2>
+            <button onclick="window.location.href='index.html'">Home</button>
+            <button onclick="window.location.href='about.html'">About Us</button>
+            <button onclick="window.location.href='budget.html'">Budget</button>
+            <button onclick="window.location.href='transaction.html'">Transactions</button>
+            <button onclick="window.location.href='dashboard.html'">Dashboard</button>
+            <button onclick="window.location.href='billreminder.html'">Bill Reminder</button>
+            <button onclick="window.location.href='goaltracker.html'">Goal Tracker</button>
+            <button onclick="window.location.href='report.html'">Monthly Report</button>
+            <button onclick="window.location.href='contactpage.html'">Contact Us</button>
+            <button onclick="window.location.href='login.html'">Log Out</button>
+        
+    </div>
+
+    <div class="container">
+
+        <!-- Add Bill Form -->
+        <div class="form-box">
+
+            <h2>Add New Bill</h2>
+
+            <div class="form-group">
+                <label>Bill Name</label>
+                <input type="text" id="billName" placeholder="Enter bill name">
+            </div>
+
+            <div class="form-group">
+                <label>Amount</label>
+                <input type="number" id="billAmount" placeholder="Enter amount">
+            </div>
+
+            <div class="form-group">
+                <label>Category</label>
+
+                <select id="billCategory">
+                    <option value="Electricity">Electricity</option>
+                    <option value="Rent">Rent</option>
+                    <option value="Subscription">Subscription</option>
+                    <option value="Internet">Internet</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Due Date</label>
+                <input type="date" id="dueDate">
+            </div>
+
+            <div class="form-group">
+                <label>Recurring Bill</label>
+
+                <select id="recurring">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+            </div>
+
+            <button onclick="addBill()">Add Bill</button>
+
+        </div>
+
+        <!-- Filter -->
+        <div class="form-box">
+
+            <h2>Filter Bills</h2>
+
+            <select id="filterStatus" onchange="displayBills()">
+                <option value="All">All Bills</option>
+                <option value="Pending">Pending Bills</option>
+                <option value="Paid">Paid Bills</option>
+            </select>
+
+        </div>
+
+        <!-- Bill List -->
+        <div id="billList"></div>
+
+    </div>
+
+    <script src="billreminder.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly Report - ExpenseFlow</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="
+            background-image: none;
+            background: white;">
+
+    <nav style="
+            background-image: url('pictures/nav3.jpeg');
+            background-size: cover;
+            background-position: center;">
+
+        <button id="menuBtn" onclick="toggleSidebar()">☰</button>
+        <h2 align="center">ExpenseFlow</h2>
+        
+    </nav>
+
+    
+    <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+
+    <div class="sidebar" id="sidebar">
+       <h2 align="center" style="color: black;">All Pages</h2>
+            <button onclick="window.location.href='index.html'">Home</button>
+            <button onclick="window.location.href='about.html'">About Us</button>
+            <button onclick="window.location.href='budget.html'">Budget</button>
+            <button onclick="window.location.href='transaction.html'">Transactions</button>
+            <button onclick="window.location.href='dashboard.html'">Dashboard</button>
+            <button onclick="window.location.href='billreminder.html'">Bill Reminder</button>
+            <button onclick="window.location.href='goaltracker.html'">Goal Tracker</button>
+            <button onclick="window.location.href='report.html'">Monthly Report</button>
+            <button onclick="window.location.href='contactpage.html'">Contact Us</button>
+            <button onclick="window.location.href='login.html'">Log Out</button>
+        
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <h2 style="text-align: center; margin-bottom: 20px;">Monthly Financial Conclusion</h2>
+            <hr style="margin-bottom: 20px; border: 0.5px solid #eee;">
+            
+            <div id="reportDisplay">
+                </div>
+        </div>
+
+        <h2 style="text-align: center; margin-top: 60px; color: #ac3c45; text-transform: uppercase; letter-spacing: 1px;">
+            Your Monthly Journey
+        </h2>
+        
+        <div class="timeline-container">
+            <div class="timeline-line"></div>
+            <div id="storyDisplay">
+                </div>
+        </div>
+
+        <div style="margin: 60px 0 40px; text-align: center; padding-top: 20px; border-top: 1px solid #ddd;">
+            <p style="color: #666; margin-bottom: 20px; font-style: italic;">Finished reviewing your month?</p>
+            <div style="display: flex; justify-content: center; gap: 15px;">
+                <button onclick="window.print()" style="width: auto; padding: 12px 40px; background: #3498db;">
+                    Download Report (PDF)
+                </button>
+                <button onclick="resetData()" style="width: auto; padding: 12px 40px; background: #ac3c45;">
+                    Reset All Data
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="report.js"></script>
+</body>
+</html>

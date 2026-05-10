@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - ExpenseFlow</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+</head>
+<body style="
+            background-image: none;
+            background-image:linear-gradient(to bottom, lavenderblush,#DAB4B4 );">
+
+    <nav style="
+            background-image: url('pictures/nav3.jpeg');
+            background-size: cover;
+            background-position: center;">
+
+        <button id="menuBtn" onclick="toggleSidebar()">☰</button>
+        <h2 align="center">ExpenseFlow</h2>
+        
+    </nav>
+
+    
+    <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+
+    <div class="sidebar" id="sidebar">
+       <h2 align="center" style="color: black;">All Pages</h2>
+            <button onclick="window.location.href='index.html'">Home</button>
+            <button onclick="window.location.href='about.html'">About Us</button>
+            <button onclick="window.location.href='budget.html'">Budget</button>
+            <button onclick="window.location.href='transaction.html'">Transactions</button>
+            <button onclick="window.location.href='dashboard.html'">Dashboard</button>
+            <button onclick="window.location.href='billreminder.html'">Bill Reminder</button>
+            <button onclick="window.location.href='goaltracker.html'">Goal Tracker</button>
+            <button onclick="window.location.href='report.html'">Monthly Report</button>
+            <button onclick="window.location.href='contactpage.html'">Contact Us</button>
+            <button onclick="window.location.href='login.html'">Log Out</button>
+        
+    </div>
+
+    <div class="container">
+        
+        <!-- SUMMARY CARDS: Using Grid Layout -->
+        <div class="cards-grid">
+            <div class="card income-border">
+                <h3>Total Income</h3>
+                <p id="income" class="income">₹0</p>
+            </div>
+
+            <div class="card expense-border">
+                <h3>Total Expenses</h3>
+                <p id="expense" class="expense">₹0</p>
+            </div>
+
+            <div class="card balance-border">
+                <h3>Current Balance</h3>
+                <p id="balance">₹0</p>
+            </div>
+        </div>
+
+        <!-- CHARTS SECTION: Using Flexbox for responsiveness -->
+        <div class="charts-container">
+            
+            <!-- Pie Chart: Spending by Category -->
+            <div class="chart-box">
+                <h3>Spending by Category</h3>
+                <!-- Wrapper to fix the "too big" chart issue -->
+                <div class="chart-wrapper" style="height: 300px; position: relative; margin-top: 15px;">
+                    <canvas id="pieChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Line Chart: Transaction History -->
+            <div class="chart-box">
+                <h3>Transaction History</h3>
+                <!-- Wrapper to maintain a consistent height -->
+                <div class="chart-wrapper" style="height: 300px; position: relative; margin-top: 15px;">
+                    <canvas id="lineChart"></canvas>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Linked to dashboard.js for data processing -->
+    <script src="dashboard.js"></script>
+</body>
+</html>
